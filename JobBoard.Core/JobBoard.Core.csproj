@@ -53,6 +53,7 @@
     <Compile Include="Entity\Experience.cs" />
     <Compile Include="Entity\JobSeeker.cs" />
     <Compile Include="Entity\PostedJob.cs" />
+    <Compile Include="profileQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\Recruiter.cs" />
     <Compile Include="Entity\User.cs" />
