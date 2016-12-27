@@ -127,24 +127,24 @@
                         </Grid.RowDefinitions>
                         <Label x:Name="LUsernameLabel" Content="Username: " HorizontalAlignment="Left" Margin="10,71.769,0,0" FontFamily="/WpfApplication;component/Fonts/#Segoe UI" FontSize="20" Foreground="#FFA2A2A2" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment"/>
                         <Label x:Name="LPasswordLabel" Content="Password: " HorizontalAlignment="Left" Margin="10,130.696,0,0" FontFamily="/WpfApplication;component/Fonts/#Segoe UI" FontSize="20" Foreground="#FFA2A2A2" VerticalAlignment="Top"/>
-                        <TextBox x:Name="LUsernameBox" Margin="189.64,71.371,420.367,0" TextWrapping="Wrap" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Cursor="IBeam" Height="36.279" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment"/>
-                        <PasswordBox x:Name="LPasswordBox" Margin="189.64,130.7,420.367,0" VerticalAlignment="Top" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Height="36.597"/>
+                        <TextBox x:Name="LUsernameBox" KeyboardNavigation.TabIndex="0" Margin="189.64,71.371,420.367,0" TextWrapping="Wrap" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Cursor="IBeam" Height="36.279" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" KeyDown="LUsernameBox_KeyDown" TextChanged="LUsernameBox_TextChanged"/>
+                        <PasswordBox x:Name="LPasswordBox" KeyboardNavigation.TabIndex="1" Margin="189.64,130.7,420.367,0" VerticalAlignment="Top" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Height="36.597"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="Register" Header="Register" Background="#FF666666" BorderBrush="{x:Null}" Style="{DynamicResource LRCustomTabStyle}" Margin="58.04,0,-81.68,0" d:LayoutOverrides="VerticalAlignment" FontFamily="Calibri Bold" FontSize="24">
                     <Grid x:Name="RGrid" Background="#FF1D1D1D" Margin="0,-1.5,0,1.5">
                         <Label x:Name="RUsernameLabel" Content="Username: " HorizontalAlignment="Left" Margin="10,56.303,0,0" VerticalAlignment="Top" FontFamily="/WpfApplication;component/Fonts/#Segoe UI" FontSize="20" Foreground="#FFA2A2A2"/>
                         <Label x:Name="RPassLabel" Content="Password: " HorizontalAlignment="Left" Margin="10,105.892,0,94.364" FontFamily="/WpfApplication;component/Fonts/#Segoe UI" FontSize="20" Foreground="#FFA2A2A2" d:LayoutOverrides="Height"/>
-                        <TextBox x:Name="RUsernameBox" Height="36.6" Margin="189.257,56.303,420.75,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Cursor="IBeam"/>
-                        <PasswordBox x:Name="RPassBox" Margin="189.257,105.896,420.75,0" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Height="36.597" VerticalAlignment="Top"/>
-                        <PasswordBox x:Name="RPassConfirmBox" Margin="189.257,155.396,420.75,0" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" VerticalAlignment="Top" Height="35.097"/>
+                        <TextBox x:Name="RUsernameBox" KeyboardNavigation.TabIndex="0" Height="36.6" Margin="189.257,56.303,420.75,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Cursor="IBeam"/>
+                        <PasswordBox x:Name="RPassBox" KeyboardNavigation.TabIndex="1" Margin="190,106,420,0" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" Height="36" VerticalAlignment="Top"/>
+                        <PasswordBox x:Name="RPassConfirmBox" KeyboardNavigation.TabIndex="2" Margin="189.257,155.396,420.75,0" Background="#FF3A3A3A" BorderBrush="{x:Null}" SelectionBrush="#FFA7D479" Foreground="#FFCBCBCB" VerticalAlignment="Top" Height="35.097"/>
                         <Label x:Name="RPassConfirmLabel" Content="Confirm Password: " HorizontalAlignment="Left" Margin="10,153.892,0,0" FontFamily="/WpfApplication;component/Fonts/#Segoe UI" FontSize="20" Foreground="#FFA2A2A2" VerticalAlignment="Top"/>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
         <Grid x:Name="LRSubGrid2" HorizontalAlignment="Center" Height="100" Margin="10,494.021,0,0" Grid.Row="1" VerticalAlignment="Bottom" Width="927">
-            <Button x:Name="LRProceed" Content="Proceed" Margin="375,30,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="166" RenderTransformOrigin="-0.08,-1.002" BorderBrush="{x:Null}" Background="#FFA7D479" Foreground="#FF1D1D1D" ClickMode="Press" IsDefault="True" Height="41" HorizontalAlignment="Left" FontFamily="Calibri bold" Click="LRProceed_Click" FontSize="28"/>
+            <Button x:Name="LRProceed" KeyboardNavigation.TabIndex="3" Content="Proceed" Margin="375,30,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="166" RenderTransformOrigin="-0.08,-1.002" BorderBrush="{x:Null}" Background="#FFA7D479" Foreground="#FF1D1D1D" ClickMode="Press" IsDefault="True" Height="41" HorizontalAlignment="Left" FontFamily="Calibri bold" Click="LRProceed_Click" FontSize="28"/>
         </Grid>
 
     </Grid>

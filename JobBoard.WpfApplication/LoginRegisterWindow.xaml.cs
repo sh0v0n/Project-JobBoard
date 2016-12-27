@@ -23,15 +23,15 @@ namespace JobBoard.WpfApplication
     /// </summary>
     public partial class LoginRegister : Window
     {
-        DBConnectionControl connectionControl;
-        LoginRegistrationControl loginRegistrationControl;
+        LoginRegistrationControl loginRegistrationControl = LoginRegistrationControl.getInstance();
+        User currentUser;
+        Welcome welcomeWindow;
 
 
-        public LoginRegister()
+        public LoginRegister(Welcome wc)
         {
-            connectionControl = new DBConnectionControl();
-            loginRegistrationControl = LoginRegistrationControl.getInstance();
             InitializeComponent();
+            this.welcomeWindow = wc;
         }
 
 
@@ -56,7 +56,8 @@ namespace JobBoard.WpfApplication
             {
                 if (loginRegistrationControl.login(LUsernameBox.Text, LPasswordBox.Password.ToString()))
                 {
-                    Profile jp = new Profile();
+                    currentUser = User.getInstance();
+                    Profile jp = new Profile(currentUser);
                     jp.Show();
                     this.Hide();
                 }
@@ -71,9 +72,10 @@ namespace JobBoard.WpfApplication
                 {
                     if (RPassBox.Password.ToString() == RPassConfirmBox.Password.ToString())
                     {
-                        loginRegistrationControl.register(RUsernameBox.Text, RPassBox.Password.ToString());
-                        User.currentUser.UserName = RUsernameBox.Text.Trim();
-                        ChooseProfile cp = new ChooseProfile();
+                        currentUser = User.getInstance();
+                        currentUser.UserName = RUsernameBox.Text.Trim();
+                        currentUser.UserPassword = RPassBox.Password.ToString();
+                        ChooseProfile cp = new ChooseProfile(this);
                         cp.Show();
                         this.Hide();
                     }
@@ -87,6 +89,17 @@ namespace JobBoard.WpfApplication
                     MessageBox.Show("An Account is already created with this Username");
                 }
             }
+        }
+
+        private void LUsernameBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab)
+            { LPasswordBox.Focus(); }
+        }
+
+        private void LUsernameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

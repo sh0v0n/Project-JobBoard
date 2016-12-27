@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+//using Renci.SshNet;
 using System.Threading;
 
 namespace JobBoard.Data
@@ -48,6 +49,14 @@ namespace JobBoard.Data
             dataAdapter.Fill(dataTable);
             return dataTable;
 
+        }
+
+        public void updateQuery(string query)
+        {
+            MySqlCommand sqlCommand = new MySqlCommand(query, connection);
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
         }
 
         //To create Connection with DataBase
