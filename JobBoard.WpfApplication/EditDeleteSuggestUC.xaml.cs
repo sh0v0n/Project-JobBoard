@@ -54,5 +54,11 @@ namespace JobBoard.WpfApplication
             ViewCandidatesWindow vcWindow = new ViewCandidatesWindow(vbuc);
             vcWindow.Show();
         }
+
+        private void appliedButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewCandidatesWindow vcWindow = new ViewCandidatesWindow(vacancy);
+            vcWindow.Show();
+        }
     }
 }
