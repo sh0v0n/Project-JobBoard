@@ -24,9 +24,11 @@ namespace JobBoard.WpfApplication
         IEHPatterns iehp = IEHPatterns.getInstance();
         LoginRegistrationControl lrControl = LoginRegistrationControl.getInstance();
         User currentUser;
-        public EmployerRegistration(User currentUser)
+        RecruiterRegistration recruiter;
+        public EmployerRegistration(User currentUser, RecruiterRegistration recruiter)
         {
             this.currentUser = currentUser;
+            this.recruiter = recruiter;
             InitializeComponent();
             phoneBox.Text = "+880";
         }
@@ -147,6 +149,13 @@ namespace JobBoard.WpfApplication
             {
                 emailBox.BorderBrush = new SolidColorBrush(Colors.Green);
             }
+        }
+
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            recruiter.Show();
+            this.Close();
         }
 
         private void websiteBox_LostFocus(object sender, RoutedEventArgs e)

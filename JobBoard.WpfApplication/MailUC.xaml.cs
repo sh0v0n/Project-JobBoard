@@ -40,12 +40,12 @@ namespace JobBoard.WpfApplication
 
         private void amail_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.Height = Double.NaN;
+
         }
 
         private void amail_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.Height = 50;
+
         }
 
         private void PopulateUC()
@@ -128,12 +128,20 @@ namespace JobBoard.WpfApplication
             WritemailWindow reply;
 
             if (currentUser.UserName == mail.SenderUserName)
-                reply = new WritemailWindow(currentUser, mail.ReceiverUserName, mail.MailSubject);
+                reply = new WritemailWindow(currentUser, mail.ReceiverUserName, mail.MailSubject, mw);
 
             else
-                reply = new WritemailWindow(currentUser, mail.SenderUserName, mail.MailSubject);
+                reply = new WritemailWindow(currentUser, mail.SenderUserName, mail.MailSubject, mw);
 
             reply.Show();
+        }
+
+        private void amail_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.Height == 50)
+                this.Height = Double.NaN;
+            else
+                this.Height = 50;
         }
     }
 }

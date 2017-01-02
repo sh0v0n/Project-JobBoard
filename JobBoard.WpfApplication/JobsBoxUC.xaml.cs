@@ -33,17 +33,20 @@ namespace JobBoard.WpfApplication
 
             PopulateJB();
             if (ProfileInteractionsControl.getInstance().alreadyAddedApplication(vacancy, userRef))
-                applyBtn.Click -= applyBtn_Click;
+            {
+                applyBtn.Content = "Applied";
+                applyBtn.IsEnabled = false;
+            }
         }
 
         private void JobsBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            this.Height = double.NaN;
+            
         }
 
         private void JobsBox_MouseLeave(object sender, MouseEventArgs e)
         {
-            this.Height = 105;
+
         }
 
         private void PopulateJB()
@@ -76,7 +79,7 @@ namespace JobBoard.WpfApplication
 
         private void viewProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            AnotherProfile recprofile = new AnotherProfile(vacancy.Recruiter);
+            AnotherProfile recprofile = new AnotherProfile(vacancy.Recruiter.UserName);
             recprofile.Show();
             recprofile.Activate();
             recprofile.Topmost = true;
@@ -86,7 +89,16 @@ namespace JobBoard.WpfApplication
         private void applyBtn_Click(object sender, RoutedEventArgs e)
         {
             ProfileInteractionsControl.getInstance().addApplication(vacancy,userRef);
-            applyBtn.Click -= applyBtn_Click;
+            applyBtn.Content = "Applied";
+            applyBtn.IsEnabled = false;
+        }
+
+        private void JobsBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(this.Height == 110)
+                this.Height = Double.NaN;
+            else
+                this.Height = 110;
         }
     }
 }
